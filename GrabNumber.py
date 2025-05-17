@@ -17,6 +17,7 @@ import sm
 import ua
 import sys
 from datetime import datetime
+import requests
 
 # logger.remove()
 # logger.add(sys.stdout,level="INFO",enqueue=True,backtrace=False,diagnose=False)
@@ -206,7 +207,8 @@ if __name__ == '__main__':
     xhyy = AsyncXhyy(proxies = None)
     with open('手动输入医生信息.txt', 'r', encoding='utf-8') as f:
         info_list = f.readlines()
-    code_list = WechatCode.get_code()
+    # code_list = WechatCode.get_code()
+    code_list = requests.get('https://10731pvte2806.vicp.fun/run').json()['data']
     if not code_list or not code_list[0]:
         logger.error('微信code获取失败')
     info_list = [eval(x.strip()) for x in info_list]
