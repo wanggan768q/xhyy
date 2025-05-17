@@ -203,7 +203,7 @@ class AsyncXhyy:
             await self.close_session()
 
 if __name__ == '__main__':
-    open('抢号成功记录.txt','w').close()
+    # open('抢号成功记录.txt','w').close()
     xhyy = AsyncXhyy(proxies = None)
     with open('手动输入医生信息.txt', 'r', encoding='utf-8') as f:
         info_list = f.readlines()
